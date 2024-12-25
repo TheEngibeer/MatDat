@@ -1,0 +1,37 @@
+/* Navbar.css */
+.navbar {
+    background-color: var(--primary-color);
+  }
+  
+  .navbar .navbar-brand img {
+    height: 40px;
+  }
+  
+  .navbar .nav-link {
+    color: var(--secondary-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar .nav-link:hover {
+    color: var(--accent-color);
+  }
+  
+  .navbar .btn-success {
+    background-color: var(--accent-color);
+    border: none;
+  }
+  
+  .navbar .btn-success:hover {
+    background-color: var(--light-green);
+  }
+  
+  .navbar .btn-outline-secondary {
+    border-color: var(--secondary-color);
+  }
+  
+  .navbar .btn-outline-secondary:hover {
+    background-color: var(--secondary-color);
+    color: white;
+  }
+  

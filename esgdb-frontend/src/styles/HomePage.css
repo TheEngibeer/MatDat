@@ -1,0 +1,124 @@
+/* Hero Section */
+.hero-section {
+  align-items: center;
+  padding: var(--section-padding) 0; /* Reducer margin i top og bund */
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.hero-section .container {
+  max-width: var(--container-max-width); /* Ensartet bredde */
+  margin: 0 auto; /* Centrerer indholdet */
+}
+
+.hero-content {
+  flex: 1;
+  padding: 20px;
+}
+
+.hero-content .highlight {
+  color: var(--accent-color);
+  text-shadow: none;
+}
+
+.hero-content a {
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.hero-content a:hover {
+  transform: scale(1.1);
+}
+
+.hero-content .btn-primary {
+  background-color: var(--accent-color);
+  border: none;
+}
+
+.hero-content .btn-primary:hover {
+  background-color: var(--light-green);
+}
+
+.hero-content .btn-outline-light {
+  border: 2px solid white;
+}
+
+.hero-content .btn-outline-light:hover {
+  background-color: white;
+  color: var(--primary-color);
+}
+
+/* Hero Image */
+.hero-image {
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px;
+  height: 100%; /* Gør billedet responsivt */
+  aspect-ratio: 16 / 9; /* Holder billedets proportioner */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Statistik-sektion */
+.statistics-section {
+  background-color: var(--background-green);
+  padding: 50px 0;
+}
+
+.stat-card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.stat-icon {
+  font-size: 50px;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+.stat-card h3 {
+  font-size: 2.5rem;
+  color: var(--accent-color);
+  margin-bottom: 10px;
+}
+
+/* Testimonial-sektion */
+.testimonials-section blockquote {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--primary-color);
+  border-left: 4px solid var(--secondary-color);
+  padding-left: 15px;
+}
+
+/* FAQ-sektion */
+.faq-section .accordion-button {
+  background-color: var(--light-green);
+  color: var(--primary-color);
+}
+
+.faq-section .accordion-button:focus {
+  box-shadow: none;
+}
+
+/* Mobilvenlig styling */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 30px 0; /* Mindre padding på mindre skærme */
+  }
+
+  .hero-image {
+    aspect-ratio: auto; /* Fjerner fast forhold på små skærme */
+    height: 300px; /* Dynamisk højde tilpasset mindre skærme */
+  }
+
+  .hero-content {
+    margin-bottom: 20px;
+  }
+}
+
