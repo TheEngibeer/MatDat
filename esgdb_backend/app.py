@@ -15,13 +15,11 @@ from userprofile.routes import profile_bp
 
 # Flask-app og konfigurationer
 app = Flask(__name__)
-CORS(app)
+CORS(app, supports_credentials=True)
 
 # Miljøkonfiguration
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))  # Sætter en absolut sti
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv(
-    'DATABASE_URL', f"sqlite:///{os.path.join(BASE_DIR, 'instance', 'database.db')}"
-)
+app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{os.path.join(BASE_DIR, 'instance', 'database.db')}"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'fallback_nøgle')
 

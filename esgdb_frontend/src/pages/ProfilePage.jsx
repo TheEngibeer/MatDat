@@ -32,9 +32,9 @@ function ProfilePage() {
             .catch((err) => console.error(err));
 
         // Hent brugerens ressourcer
-        fetch("http://127.0.0.1:5000/myresources", {
+        fetch("http://127.0.0.1:5000/resources/myresources", {
             headers: {
-                Authorization: token,
+                Authorization: `Bearer ${token}`,
             },
         })
             .then((res) => res.json())
@@ -43,9 +43,9 @@ function ProfilePage() {
                     setMyResources(data);
                 } else {
                     console.error("Unexpected response:", data);
-                }
-            })
-            .catch((err) => console.error(err));
+        }
+    })
+    .catch((err) => console.error(err));
     }, [navigate]);
 
     const handleDeleteResource = (resourceId) => {

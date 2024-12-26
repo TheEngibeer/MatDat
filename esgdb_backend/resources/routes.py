@@ -29,19 +29,24 @@ def get_resources():
 def create_resource():
     data = request.get_json()
     user_id = get_jwt_identity()  # Henter bruger-ID fra token
-    print("Modtagne data:", data)  # Log data fra frontend
-    print("Bruger-ID:", user_id)   # Log bruger-ID fra token
 
-    # Opret en ny resource baseret på request-data
+    print("Modtagne data fra frontend:", data)  # Log modtagne data
+    print("Bruger-ID fra token:", user_id)  # Log bruger-ID
+
+    # Valider data (eksempel)
+    if not data.get("material") or not data.get("quantity"):
+        return jsonify({"error": "Materiale og antal er obligatoriske"}), 400
+
+    # Opret en ny resource
     new_resource = Resource(
         material=data.get("material"),
         quantity=data.get("quantity"),
         price=data.get("price"),
         description=data.get("description"),
-        category=data.get("category"),  # Tilføj kategori
-        location=data.get("location"),  # Tilføj lokation
-        user_id=user_id,                # Tilføj bruger-ID
-        image_url=data.get("image_url"), 
+        category=data.get("category"),
+        location=data.get("location"),
+        user_id=user_id,
+        image_url=data.get("image_url"),
         status=data.get("status", "draft"),
     )
 
@@ -49,6 +54,7 @@ def create_resource():
     db.session.commit()
 
     return jsonify({"id": new_resource.id, "message": "Ressource oprettet"}), 201
+
 
 
 @resources_bp.route('/myresources', methods=['GET'])

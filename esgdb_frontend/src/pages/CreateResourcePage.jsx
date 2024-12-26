@@ -10,6 +10,7 @@ function CreateResourcePage() {
   const [category, setCategory] = useState("");
   const [location, setLocation] = useState("");
   const [imageUrl, setImageUrl] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -21,44 +22,54 @@ function CreateResourcePage() {
 
   const token = localStorage.getItem("token");
 
-  const handleSubmit = (status) => {
+  const handleSubmit = async (status) => {
     // status er "draft" eller "published"
     const newResourceData = {
-      material,
+      material: material.trim(),
+      category: category.trim(),
+      location: location.trim(),
       quantity: parseInt(quantity, 10),
       price: parseFloat(price),
-      description,
-      category,
-      location,
-      image_url: imageUrl || "https://via.placeholder.com/400x200",
-      status
+      description: description.trim(),
+      image_url: imageUrl.trim() || "https://via.placeholder.com/400x200",
+      status,
     };
 
-    fetch("http://127.0.0.1:5000/resources/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": token
-      },
-      body: JSON.stringify(newResourceData)
-    })
-    .then(res => res.json())
-    .then(data => {
-      if (data.id) {
-        // Succesfuld oprettelse
-        // Omdiriger tilbage til "Min database"
-        navigate('/profile');
-      } else {
-        alert("Kunne ikke oprette ressource: " + (data.error || "Ukendt fejl"));
+    try {
+      const response = await fetch("http://127.0.0.1:5000/resources/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`
+        },
+        body: JSON.stringify(newResourceData)
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Ukendt fejl under oprettelse af ressource");
       }
-    })
-    .catch(error => console.error("Error creating resource:", error));
+
+      console.log("Ressource oprettet:", data);
+      navigate('/profile');
+    } catch (error) {
+      console.error("Fejl ved oprettelse af ressource:", error.message);
+      setErrorMessage(error.message || "Noget gik galt. Prøv igen.");
+    }
   };
 
   return (
     <div className="container my-5">
       <h1>Opret ny ressource</h1>
       <p>Udfyld felterne herunder for at oprette din ressource.</p>
+
+      {errorMessage && (
+        <div className="alert alert-danger" role="alert">
+          {errorMessage}
+        </div>
+      )}
+
       <form onSubmit={(e) => e.preventDefault()}>
         <div className="mb-3">
           <label className="form-label">Materiale</label>

@@ -2,7 +2,7 @@ from flask import Blueprint, request, jsonify
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_jwt_extended import create_access_token
 from extensions.database import db
-from esgdb_backend.models import User
+from models import User
 
 auth_bp = Blueprint('auth', __name__)
 
@@ -34,5 +34,6 @@ def login():
     if not user or not check_password_hash(user.password_hash, password):
         return jsonify({'error': 'Ugyldige login-oplysninger'}), 401
 
-    access_token = create_access_token(identity=user.id)
+    # Konverter user.id til en streng for at sikre korrekt JWT-format
+    access_token = create_access_token(identity=str(user.id))
     return jsonify({'token': access_token}), 200
