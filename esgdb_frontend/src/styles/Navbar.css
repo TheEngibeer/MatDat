@@ -1,37 +1,91 @@
-/* Navbar.css */
+/* Navbar */
 .navbar {
-    background-color: var(--primary-color);
-  }
-  
-  .navbar .navbar-brand img {
-    height: 40px;
-  }
-  
-  .navbar .nav-link {
-    color: var(--secondary-color);
-    font-weight: 500;
-    transition: color 0.3s ease;
-  }
-  
-  .navbar .nav-link:hover {
-    color: var(--accent-color);
-  }
-  
-  .navbar .btn-success {
-    background-color: var(--accent-color);
-    border: none;
-  }
-  
-  .navbar .btn-success:hover {
-    background-color: var(--light-green);
-  }
-  
-  .navbar .btn-outline-secondary {
-    border-color: var(--secondary-color);
-  }
-  
-  .navbar .btn-outline-secondary:hover {
-    background-color: var(--secondary-color);
-    color: white;
-  }
-  
+  background-color: var(--primary-color);
+  transition: background-color 0.3s ease;
+}
+
+.navbar:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Brand (logo + tekst) */
+.navbar .navbar-brand {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 1.5rem; /* Større tekst */
+  font-weight: bold;
+  gap: 15px; /* Mellemrum mellem logo og tekst */
+}
+
+.navbar .navbar-brand img {
+  height: 60px; /* Justerer logoets højde */
+  width: auto; /* Bevarer billedets proportioner */
+}
+
+.navbar .navbar-brand .navbar-text {
+  margin-left: 0; /* Fjern tidligere margin */
+  font-size: 1.6rem; /* Øger størrelsen på teksten */
+  color: var(--accent-color);
+}
+
+.navbar .navbar-brand .navbar-text:hover {
+  color: var(--light-green); /* Hover-effekt på teksten */
+}
+
+/* Links */
+.navbar .nav-link {
+  color: var(--light-green);
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar .nav-link:hover {
+  color: var(--accent-color);
+  transform: scale(1.1);
+}
+
+/* Buttons */
+.navbar .btn-success {
+  background-color: var(--accent-color);
+  border: none;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.navbar .btn-success:hover {
+  background-color: var(--light-green);
+  transform: scale(1.1);
+}
+
+.navbar .btn-outline-light {
+  border-color: white;
+  color: white;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.navbar .btn-outline-light:hover {
+  background-color: white;
+  color: var(--primary-color);
+}
+
+/* Mobilmenu */
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/ %3E%3C/svg%3E");
+}
+
+/* Sticky Effekt */
+.sticky-top {
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+}

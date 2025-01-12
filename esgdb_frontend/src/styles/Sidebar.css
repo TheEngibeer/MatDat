@@ -1,0 +1,62 @@
+/* Dashboard-layout */
+.dashboard-layout {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  /* Navbar øverst */
+  .navbar {
+    background-color: var(--primary-color);
+    padding: 10px 20px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Hovedlayout */
+  .dashboard-content {
+    display: flex;
+    flex: 1;
+  }
+  
+  /* Venstremenu */
+  .side-menu {
+    width: 250px;
+    background-color: var(--background-green);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .side-menu nav a {
+    padding: 10px 15px;
+    margin-bottom: 5px;
+    text-decoration: none;
+    color: var(--primary-color);
+    background: white;
+    border-radius: var(--border-radius);
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  
+  .side-menu nav a:hover {
+    background-color: var(--accent-color);
+    color: white;
+    transform: translateX(5px);
+  }
+  
+  /* Hovedindhold */
+  .main-content {
+    flex: 1;
+    padding: var(--section-padding);
+    overflow-y: auto;
+  }
+  
+  /* Responsiv venstremenu */
+  @media (max-width: 768px) {
+    .side-menu {
+      display: none;
+    }
+  }
+  

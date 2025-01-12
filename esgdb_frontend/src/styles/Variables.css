@@ -1,0 +1,22 @@
+:root {
+  /* Farver */
+  --primary-color: #205374;
+  --secondary-color: #27a09e;
+  --accent-color: #30ce88;
+  --light-green: #7de393;
+  --background-green: #d3f5ee;
+  --background-color: #f8f9fa;
+  --text-color: #333;
+  --link-color: #205374;
+  --link-hover-color: #30ce88;
+
+  /* Typografi */
+  --font-primary: "Roboto", sans-serif;
+  --font-size-large: 1.5rem;
+  --font-size-medium: 1rem;
+
+  /* Layout */
+  --container-max-width: 1200px;
+  --section-padding: 80px;
+  --border-radius: 15px;
+}

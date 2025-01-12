@@ -1,4 +1,60 @@
+/* Global Layout */
+.my-resources-page {
+  padding: 20px;
+  background-color: #f9f9f9;
+}
 
+/* Navigation */
+.nav {
+  background-color: var(--primary-color);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.nav .nav-link {
+  color: white;
+  font-weight: bold;
+}
+
+.nav .nav-link.active {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+/* Resources Grid */
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* Resource Card */
+.resource-card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.resource-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.resource-card h5 {
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.resource-card p {
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+
+/* Buttons */
+.buttons {
 /* General styles */
 .container {
   max-width: var(--container-max-width);
@@ -220,4 +276,22 @@
   .problem-section .video-placeholder {
     height: 200px;
   }
+}
+
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.buttons .btn {
+  font-size: 0.8rem;
+  padding: 5px 10px;
+}
+
+.buttons .btn-danger {
+  background-color: #dc3545;
+}
+
+.buttons .btn-success {
+  background-color: var(--accent-color);
 }

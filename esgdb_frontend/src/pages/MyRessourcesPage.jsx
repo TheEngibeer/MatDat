@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import "../styles/ProfilePage.css";
+import "../styles/MyRessourcesPage.css";
 
-function ProfilePage() {
+function MyResourcesPage() {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [myResources, setMyResources] = useState([]);
@@ -16,9 +16,7 @@ function ProfilePage() {
 
     const fetchProfile = () => {
       fetch("http://127.0.0.1:5000/profile", {
-        headers: {
-          Authorization: token,
-        },
+        headers: { Authorization: token },
       })
         .then((res) => res.json())
         .then((data) => {
@@ -35,9 +33,7 @@ function ProfilePage() {
 
     const fetchResources = () => {
       fetch("http://127.0.0.1:5000/resources/myresources", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+        headers: { Authorization: `Bearer ${token}` },
       })
         .then((res) => res.json())
         .then((data) => {
@@ -63,9 +59,7 @@ function ProfilePage() {
 
     fetch(`http://127.0.0.1:5000/resources/${resourceId}`, {
       method: "DELETE",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
+      headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => res.json())
       .then((data) => {
@@ -79,70 +73,63 @@ function ProfilePage() {
   };
 
   return (
-    <div className="container my-5">
+    <div className="my-resources-page">
       <nav className="nav nav-pills flex-column flex-sm-row mb-4">
         <Link className="flex-sm-fill text-sm-center nav-link" to="/dashboard">
-            Dashboard
+          Dashboard
         </Link>
         <Link className="flex-sm-fill text-sm-center nav-link" to="/profile">
-            Min profil
+          Min profil
         </Link>
-        <Link className="flex-sm-fill text-sm-center nav-link" to="/myresources">
-            Mine ressourcer
+        <Link className="flex-sm-fill text-sm-center nav-link active" to="/myresources">
+          Mine ressourcer
         </Link>
         <Link className="flex-sm-fill text-sm-center nav-link" to="/searchresources">
-            Søg Ressourcer
+          Søg Ressourcer
         </Link>
         <Link className="flex-sm-fill text-sm-center nav-link" to="/subscriptions">
-            Abonnementer
+          Abonnementer
         </Link>
         <Link className="flex-sm-fill text-sm-center nav-link" to="/agent">
-            Agent
+          Agent
         </Link>
-        </nav>
-
+      </nav>
 
       <h2 className="mb-4">Dine ressourcer</h2>
       {myResources.length > 0 ? (
-        <div className="row">
+        <div className="resources-grid">
           {myResources.map((res) => (
-            <div className="col-md-4 mb-3" key={res.id}>
-              <div className="card h-100 shadow-sm">
-                <div className="card-body d-flex flex-column">
-                  <h5 className="card-title">{res.material}</h5>
-                  <p className="card-text">
-                    <strong>Kategori:</strong> {res.category || "Ikke angivet"}
-                  </p>
-                  <p className="card-text">
-                    <strong>Antal:</strong> {res.quantity}
-                  </p>
-                  <p className="card-text">
-                    <strong>Pris:</strong> {res.price} DKK
-                  </p>
-                  {res.description && (
-                    <p className="card-text">
-                      <strong>Beskrivelse:</strong> {res.description}
-                    </p>
-                  )}
-                  <div className="mt-auto">
-                    <button
-                      className="btn btn-danger btn-sm me-2"
-                      onClick={() => handleDeleteResource(res.id)}
-                    >
-                      Slet
-                    </button>
-                    {res.status === "draft" && (
-                      <button
-                        className="btn btn-success btn-sm"
-                        onClick={() =>
-                          alert("Publiceringsfunktion er under udvikling!")
-                        }
-                      >
-                        Publicer
-                      </button>
-                    )}
-                  </div>
-                </div>
+            <div key={res.id} className="resource-card">
+              <h5>{res.material}</h5>
+              <p>
+                <strong>Kategori:</strong> {res.category || "Ikke angivet"}
+              </p>
+              <p>
+                <strong>Antal:</strong> {res.quantity}
+              </p>
+              <p>
+                <strong>Pris:</strong> {res.price} DKK
+              </p>
+              {res.description && (
+                <p>
+                  <strong>Beskrivelse:</strong> {res.description}
+                </p>
+              )}
+              <div className="buttons">
+                <button
+                  className="btn btn-danger btn-sm"
+                  onClick={() => handleDeleteResource(res.id)}
+                >
+                  Slet
+                </button>
+                {res.status === "draft" && (
+                  <button
+                    className="btn btn-success btn-sm"
+                    onClick={() => alert("Publiceringsfunktion er under udvikling!")}
+                  >
+                    Publicer
+                  </button>
+                )}
               </div>
             </div>
           ))}
@@ -159,4 +146,4 @@ function ProfilePage() {
   );
 }
 
-export default ProfilePage;
+export default MyResourcesPage;

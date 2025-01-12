@@ -1,0 +1,108 @@
+/* LoginPage styling */
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    padding: 20px;
+  }
+  
+  .login-container {
+    max-width: var(--container-max-width);
+    margin: auto;
+    padding: 20px;
+  }
+  
+  /* Velkomsttekst */
+  .welcome-text h1 {
+    font-size: 2rem;
+    color: var(--primary-color);
+  }
+  
+  .welcome-text p {
+    color: var(--text-color);
+    margin-top: 5px;
+  }
+  
+  /* Formular */
+  .form-label {
+    font-weight: bold;
+    color: var(--text-color);
+  }
+  
+  .form-control {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+  }
+  
+  .form-control:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 5px rgba(48, 206, 136, 0.5);
+    outline: none;
+  }
+  
+  /* Knapper */
+  .btn {
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: var(--border-radius);
+  }
+  
+  .btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+  }
+  
+  .btn-primary:hover {
+    background-color: var(--accent-color);
+  }
+  
+  .btn-outline-primary {
+    background-color: white;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+  }
+  
+  .btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  /* Kort */
+  .card {
+    border: none;
+    border-radius: var(--border-radius);
+    height: 100%; /* Sikrer at kortene matcher i højde */
+  }
+  
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  /* Glemt adgangskode */
+  .forgot-password {
+    color: var(--link-color);
+    text-decoration: underline;
+    font-size: 0.9rem;
+  }
+  
+  .forgot-password:hover {
+    color: var(--link-hover-color);
+  }
+  
+  /* Footer-link */
+  .text-muted a {
+    color: var(--link-color);
+    text-decoration: underline;
+  }
+  
+  .text-muted a:hover {
+    color: var(--link-hover-color);
+  }
+  

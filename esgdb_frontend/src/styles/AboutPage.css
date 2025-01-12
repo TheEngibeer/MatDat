@@ -1,0 +1,121 @@
+/* Ensartet sektion */
+.section {
+  width: 100%;
+  padding: var(--section-padding) 0;
+}
+
+/* Hero Section */
+.hero-section {
+  height: 60vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: white;
+}
+
+.hero-overlay {
+  background: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  max-width: 800px;
+}
+
+/* Mission og Vision */
+.mission-vision-section .content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.mission-vision-section .text {
+  flex: 1;
+}
+
+.mission-vision-section .image {
+  flex: 1;
+}
+
+.mission-vision-section img {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Team Section */
+.team-section {
+  text-align: center;
+}
+
+.team-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.team-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 400px;
+}
+
+.team-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.team-card img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.contact-info {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-icon {
+  color: var(--accent-color);
+  font-size: 1.2rem;
+}
+
+/* Call-to-Action */
+.cta-section {
+  padding: var(--section-padding) 0;
+}
+
+.cta-section .btn {
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  background-color: var(--accent-color);
+  border: none;
+}
+
+.cta-section .btn:hover {
+  transform: scale(1.05);
+}
