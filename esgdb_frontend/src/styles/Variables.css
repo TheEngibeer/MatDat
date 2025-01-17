@@ -1,22 +1,44 @@
 :root {
   /* Farver */
-  --primary-color: #205374;
-  --secondary-color: #27a09e;
-  --accent-color: #30ce88;
-  --light-green: #7de393;
-  --background-green: #d3f5ee;
-  --background-color: #f8f9fa;
-  --text-color: #333;
-  --link-color: #205374;
-  --link-hover-color: #30ce88;
+  --primary-color: #205374; /* Hovedfarve */
+  --secondary-color: #27a09e; /* Sekundær farve */
+  --accent-color: #30ce88; /* Fremhævet farve */
+  --light-green: #7de393; /* Lys grøn til hover-effekter */
+  --background-green: #d3f5ee; /* Baggrundsgrøn */
+  --background-color: #f8f9fa; /* Generel baggrundsfarve */
+  --text-color: #333; /* Standard tekstfarve */
+  --text-light-color: #555; /* Lysere tekstfarve */
+  --link-color: #205374; /* Linkfarve */
+  --link-hover-color: #30ce88; /* Hoverfarve for links */
+  --border-color: #ddd; /* Standard kantfarve */
+  --shadow-color: rgba(0, 0, 0, 0.1); /* Standard skyggefarve */
 
   /* Typografi */
-  --font-primary: "Roboto", sans-serif;
-  --font-size-large: 1.5rem;
-  --font-size-medium: 1rem;
+  --font-primary: "Roboto", sans-serif; /* Primær skrifttype */
+  --font-secondary: "Arial", sans-serif; /* Sekundær skrifttype */
+  --font-size-large: 1.5rem; /* Stor tekst */
+  --font-size-medium: 1rem; /* Medium tekst */
+  --font-size-small: 0.875rem; /* Lille tekst */
+
+  /* Spacing */
+  --spacing-small: 8px; /* Lille spacing */
+  --spacing-medium: 16px; /* Medium spacing */
+  --spacing-large: 32px; /* Stor spacing */
+  --section-padding: 80px; /* Ensartet padding til sektioner */
 
   /* Layout */
-  --container-max-width: 1200px;
-  --section-padding: 80px;
-  --border-radius: 15px;
+  --container-max-width: 1200px; /* Standard bredde for container */
+  --border-radius: 15px; /* Standard hjørneradius */
+  --grid-gap: 20px; /* Standard afstand mellem grid-elementer */
+
+  /* Skygge */
+  --shadow-small: 0 2px 4px var(--shadow-color); /* Liten skygge */
+  --shadow-medium: 0 4px 10px var(--shadow-color); /* Medium skygge */
+  --shadow-large: 0 8px 20px rgba(0, 0, 0, 0.2); /* Stor skygge */
+
+  /* Tema */
+  --light-mode-bg: #ffffff; /* Baggrund for lys tilstand */
+  --light-mode-text: #333; /* Tekst for lys tilstand */
+  --dark-mode-bg: #1c1c1c; /* Baggrund for mørk tilstand */
+  --dark-mode-text: #f8f8f8; /* Tekst for mørk tilstand */
 }
